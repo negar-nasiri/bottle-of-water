@@ -1,0 +1,672 @@
+<!doctype html>
+<html lang="fa">
+
+<head>
+    <meta charset="utf-8">
+    <title>بازیافت بطری آب معدنی</title>
+    <script src="./vendor/react.js"></script>
+    <script src="./vendor/react-dom.js"></script>
+    <script src="./support.js"></script>
+</head>
+
+<body>
+    <x-dc>
+        <helmet>
+            <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;800&amp;display=swap"
+                rel="stylesheet">
+            <style>
+                body {
+                    margin: 0
+                }
+
+                .rt {
+                    --tx: #E6F5EE;
+                    --mu: #9CC0B0;
+                    --ln: rgba(255, 255, 255, .09);
+                    --lm: #BEF264
+                }
+
+                .rt * {
+                    box-sizing: border-box
+                }
+
+                .h {
+                    margin: 0;
+                    font-weight: 800;
+                    line-height: 1.25
+                }
+
+                .h2 {
+                    font-size: clamp(38px, 5.5vw, 76px)
+                }
+
+                .gt {
+                    background: linear-gradient(135deg, #5EEAD4, var(--lm));
+                    -webkit-background-clip: text;
+                    background-clip: text;
+                    color: transparent
+                }
+
+                .sc {
+                    position: relative;
+                    overflow: hidden;
+                    padding: 110px 28px
+                }
+
+                .ct {
+                    position: relative;
+                    max-width: 1200px;
+                    margin: 0 auto
+                }
+
+                .gl {
+                    background: linear-gradient(145deg, rgba(255, 255, 255, .08), rgba(255, 255, 255, .03));
+                    border: 1px solid var(--ln);
+                    backdrop-filter: blur(22px);
+                    -webkit-backdrop-filter: blur(22px);
+                    box-shadow: 0 30px 60px -20px rgba(0, 0, 0, .65), inset 0 1px 0 rgba(255, 255, 255, .08);
+                    border-radius: 28px
+                }
+
+                .cd {
+                    padding: 30px;
+                    animation: cf 7s ease-in-out infinite
+                }
+
+                .cd:nth-child(2) {
+                    animation-delay: -2s
+                }
+
+                .cd:nth-child(3) {
+                    animation-delay: -4s
+                }
+
+                .cd:nth-child(4) {
+                    animation-delay: -5.5s
+                }
+
+                .cd p {
+                    margin: 10px 0 0;
+                    color: var(--mu);
+                    font-size: 17px;
+                    line-height: 1.9
+                }
+
+                .fl {
+                    position: absolute;
+                    pointer-events: none;
+                    height: auto;
+                    animation: fl 7s ease-in-out infinite
+                }
+
+                svg.fl {
+                    filter: drop-shadow(0 0 16px rgba(52, 211, 153, .4))
+                }
+
+                .f2 {
+                    animation-duration: 9s;
+                    animation-delay: -4s
+                }
+
+                .f3 {
+                    animation-name: fl3;
+                    animation-duration: 11s;
+                    animation-delay: -2s
+                }
+
+                @keyframes fl {
+
+                    0%,
+                    100% {
+                        transform: translateY(0) rotate(var(--r, 0deg))
+                    }
+
+                    50% {
+                        transform: translateY(-26px) rotate(calc(var(--r, 0deg) + 8deg))
+                    }
+                }
+
+                @keyframes fl3 {
+
+                    0%,
+                    100% {
+                        transform: translate(0, 0) rotate(var(--r, 0deg)) scale(1)
+                    }
+
+                    50% {
+                        transform: translate(14px, -22px) rotate(calc(var(--r, 0deg) - 10deg)) scale(1.07)
+                    }
+                }
+
+                @keyframes cf {
+
+                    0%,
+                    100% {
+                        transform: translateY(0)
+                    }
+
+                    50% {
+                        transform: translateY(-10px)
+                    }
+                }
+
+                @keyframes dr {
+
+                    0%,
+                    100% {
+                        transform: translate(0, 0)
+                    }
+
+                    50% {
+                        transform: translate(24px, -34px)
+                    }
+                }
+
+                @keyframes tw {
+
+                    0%,
+                    100% {
+                        opacity: .25;
+                        transform: rotate(45deg) scale(.7)
+                    }
+
+                    50% {
+                        opacity: 1;
+                        transform: rotate(45deg) scale(1.15)
+                    }
+                }
+
+                @keyframes mq {
+                    to {
+                        transform: translateX(-50%)
+                    }
+                }
+
+                .ob {
+                    position: absolute;
+                    border-radius: 50%;
+                    filter: blur(70px);
+                    opacity: .45;
+                    pointer-events: none;
+                    animation: dr 14s ease-in-out infinite
+                }
+
+                .bb {
+                    border-radius: 50%;
+                    border: 1px solid rgba(255, 255, 255, .25);
+                    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, .45), rgba(255, 255, 255, .05))
+                }
+
+                .mq {
+                    display: flex;
+                    width: max-content;
+                    animation: mq 30s linear infinite
+                }
+
+                .mi {
+                    white-space: nowrap;
+                    direction: rtl;
+                    word-spacing: .35em
+                }
+
+                .bn {
+                    display: inline-block;
+                    padding: 15px 34px;
+                    border-radius: 16px;
+                    font-weight: 600;
+                    font-size: 17px;
+                    text-decoration: none;
+                    color: #06130F;
+                    background: linear-gradient(135deg, var(--lm), var(--ac));
+                    box-shadow: 0 12px 24px -10px rgba(16, 185, 129, .8), inset 0 1px 0 rgba(255, 255, 255, .35);
+                    transition: transform .2s, filter .2s
+                }
+
+                .bn:hover {
+                    transform: translateY(-2px);
+                    filter: brightness(1.08)
+                }
+
+                .bn:focus-visible {
+                    outline: 3px solid rgba(52, 211, 153, .5);
+                    outline-offset: 3px
+                }
+
+                .bn.g {
+                    color: var(--tx);
+                    background: rgba(255, 255, 255, .06);
+                    border: 1px solid rgba(255, 255, 255, .16);
+                    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .1)
+                }
+
+                .gm {
+                    position: relative;
+                    display: grid;
+                    place-items: center;
+                    width: 56px;
+                    height: 56px;
+                    margin-bottom: 18px;
+                    font-weight: 800;
+                    font-size: 22px;
+                    color: var(--tx)
+                }
+
+                .gm b {
+                    position: relative
+                }
+
+                .gm::before {
+                    content: "";
+                    position: absolute;
+                    inset: 4px;
+                    border-radius: 14px;
+                    transform: rotate(45deg);
+                    background: linear-gradient(135deg, rgba(255, 255, 255, .28), rgba(255, 255, 255, .04) 45%, rgba(52, 211, 153, .28));
+                    border: 1px solid rgba(255, 255, 255, .16);
+                    box-shadow: 0 14px 22px -10px rgba(0, 0, 0, .7), inset 0 1px 0 rgba(255, 255, 255, .3)
+                }
+
+                .gm::after {
+                    content: "";
+                    position: absolute;
+                    top: -6px;
+                    right: 4px;
+                    width: 6px;
+                    height: 6px;
+                    border-radius: 1px;
+                    transform: rotate(45deg);
+                    background: linear-gradient(135deg, #fff, var(--ac));
+                    box-shadow: 0 0 8px var(--ac);
+                    animation: tw 3.2s ease-in-out infinite
+                }
+
+                .ch {
+                    padding: 12px 26px;
+                    border-radius: 999px;
+                    font-weight: 600;
+                    font-size: clamp(17px, 2vw, 24px);
+                    color: var(--tx);
+                    border: 1px solid
+                }
+
+                .li {
+                    display: flex;
+                    gap: 14px;
+                    align-items: flex-start;
+                    font-weight: 600;
+                    font-size: 19px;
+                    line-height: 1.8
+                }
+
+                .mk {
+                    display: flex;
+                    flex: none;
+                    align-items: center;
+                    justify-content: center;
+                    width: 32px;
+                    height: 32px;
+                    border-radius: 50%;
+                    border: 1px solid;
+                    font-weight: 800
+                }
+
+                @media (max-width:760px) {
+                    .fl {
+                        opacity: .5
+                    }
+                }
+
+                @media (prefers-reduced-motion:reduce) {
+
+                    .fl,
+                    .mq,
+                    .cd,
+                    .ob,
+                    .gm::after {
+                        animation: none
+                    }
+                }
+            </style>
+        </helmet>
+        <div id="top" dir="rtl" lang="fa" class="rt"
+            style="--ac:{{accent}};font-family:'Vazirmatn',system-ui,Tahoma,sans-serif;color:#E6F5EE;overflow-x:hidden;background:#06130F">
+
+            <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+                <defs>
+                    <linearGradient id="gl" x1="0" y1="0" x2="1" y2="0">
+                        <stop offset="0" stop-color="#fff" stop-opacity=".4"></stop>
+                        <stop offset=".5" stop-color="#fff" stop-opacity=".08"></stop>
+                        <stop offset="1" stop-color="#fff" stop-opacity=".24"></stop>
+                    </linearGradient>
+                    <linearGradient id="wt" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0" stop-color="#5EEAD4"></stop>
+                        <stop offset="1" stop-color="#059669"></stop>
+                    </linearGradient>
+                    <linearGradient id="dg" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0" stop-color="#fff"></stop>
+                        <stop offset="1" stop-color="#34D399"></stop>
+                    </linearGradient>
+                    <linearGradient id="lf" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0" stop-color="#BEF264"></stop>
+                        <stop offset="1" stop-color="#10B981"></stop>
+                    </linearGradient>
+                    <g id="k-b">
+                        <rect x="37" y="3" width="26" height="17" rx="4" fill="#BEF264"></rect>
+                        <path
+                            d="M40 20h20v14c0 14 24 22 24 48v150a14 14 0 0 1-14 14H30a14 14 0 0 1-14-14V82c0-26 24-34 24-48z"
+                            fill="url(#gl)"></path>
+                        <path d="M16 124q17-10 34 0t34 0v108a14 14 0 0 1-14 14H30a14 14 0 0 1-14-14z" fill="url(#wt)"
+                            opacity=".92"></path>
+                        <rect x="16" y="146" width="68" height="62" fill="#06130F" opacity=".55"></rect>
+                        <path d="M50 152l13 22H37z" fill="none" stroke="#BEF264" stroke-width="4"
+                            stroke-linejoin="round"></path>
+                        <text x="50" y="200" text-anchor="middle" font-size="15" font-weight="800" fill="#BEF264"
+                            font-family="Vazirmatn,sans-serif">PET</text>
+                        <path
+                            d="M40 20h20v14c0 14 24 22 24 48v150a14 14 0 0 1-14 14H30a14 14 0 0 1-14-14V82c0-26 24-34 24-48z"
+                            fill="none" stroke="#E6F5EE" stroke-opacity=".7" stroke-width="2.5" stroke-linejoin="round">
+                        </path>
+                        <path d="M27 92v34" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity=".7"></path>
+                    </g>
+                    <g id="k-d">
+                        <path d="M20 3C20 3 5 22 5 33a15 15 0 0 0 30 0C35 22 20 3 20 3z" fill="url(#wt)"
+                            stroke="#E6F5EE" stroke-opacity=".7" stroke-width="2" stroke-linejoin="round"></path>
+                        <path d="M12 33a8 8 0 0 0 6 8" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"
+                            opacity=".8"></path>
+                    </g>
+                    <g id="k-l">
+                        <path d="M8 52C8 20 28 8 54 6c0 28-14 46-46 46z" fill="url(#lf)" stroke="#E6F5EE"
+                            stroke-opacity=".6" stroke-width="2" stroke-linejoin="round"></path>
+                        <path d="M8 52L36 24" stroke="#06130F" stroke-width="2.5" stroke-linecap="round" opacity=".6">
+                        </path>
+                    </g>
+                    <g id="k-m">
+                        <path d="M2 48L26 12l12 18 14-22 26 40z" fill="url(#gl)" stroke="#E6F5EE" stroke-opacity=".7"
+                            stroke-width="2" stroke-linejoin="round"></path>
+                        <path d="M52 8l-8 14 8-4 6 6z" fill="#5EEAD4"></path>
+                    </g>
+                    <g id="k-c">
+                        <path d="M20 2l16 9v18l-16 9L4 29V11z" fill="url(#wt)" stroke="#E6F5EE" stroke-opacity=".7"
+                            stroke-width="2" stroke-linejoin="round"></path>
+                        <path d="M20 2v36M4 11l32 18" stroke="#fff" stroke-width="1.5" opacity=".4"></path>
+                    </g>
+                    <g id="k-g">
+                        <path d="M10 0l10 10-10 10L0 10z" fill="url(#dg)"></path>
+                    </g>
+                    <g id="k-p">
+                        <path d="M35 6l28 50H7z" fill="rgba(190,242,100,.12)" stroke="#BEF264" stroke-width="5"
+                            stroke-linejoin="round"></path><text x="35" y="49" text-anchor="middle" font-size="26"
+                            font-weight="800" font-family="Vazirmatn,sans-serif" fill="#BEF264">1</text>
+                    </g>
+                </defs>
+            </svg>
+
+            <section class="sc"
+                style="min-height:800px;padding-top:72px;padding-bottom:120px;background:radial-gradient(1200px 700px at 80% -10%,#0F3A2C,#06130F)">
+                <div class="ob" style="width:340px;height:340px;background:#10B981;top:6%;right:10%"></div>
+                <div class="ob"
+                    style="width:280px;height:280px;background:#14B8A6;bottom:4%;left:8%;animation-delay:-6s;animation-duration:18s">
+                </div>
+                <svg class="fl" viewBox="0 0 100 260" style="left:6%;top:90px;width:clamp(120px,14vw,200px);--r:-10deg"
+                    aria-hidden="true">
+                    <use href="#k-b"></use>
+                </svg>
+                <svg class="fl f2" viewBox="0 0 100 260" style="left:25%;top:560px;width:76px;--r:26deg"
+                    aria-hidden="true">
+                    <use href="#k-b"></use>
+                </svg>
+                <svg class="fl f3" viewBox="0 0 40 52" style="left:21%;top:70px;width:44px;--r:8deg" aria-hidden="true">
+                    <use href="#k-d"></use>
+                </svg>
+                <svg class="fl f2" viewBox="0 0 40 52" style="right:6%;bottom:90px;width:56px;--r:-12deg"
+                    aria-hidden="true">
+                    <use href="#k-d"></use>
+                </svg>
+                <svg class="fl f3" viewBox="0 0 40 40" style="left:12%;bottom:70px;width:54px;--r:14deg"
+                    aria-hidden="true">
+                    <use href="#k-c"></use>
+                </svg>
+                <svg class="fl" viewBox="0 0 60 60" style="right:2%;top:50px;width:72px;--r:20deg" aria-hidden="true">
+                    <use href="#k-l"></use>
+                </svg>
+                <svg class="fl f3" viewBox="0 0 80 50" style="left:34%;bottom:36px;width:120px" aria-hidden="true">
+                    <use href="#k-m"></use>
+                </svg>
+                <svg class="fl f2" viewBox="0 0 20 20" style="left:3%;top:300px;width:20px" aria-hidden="true">
+                    <use href="#k-g"></use>
+                </svg>
+                <svg class="fl f3" viewBox="0 0 20 20" style="left:31%;top:240px;width:14px" aria-hidden="true">
+                    <use href="#k-g"></use>
+                </svg>
+                <svg class="fl" viewBox="0 0 20 20" style="right:4%;top:360px;width:24px" aria-hidden="true">
+                    <use href="#k-g"></use>
+                </svg>
+                <div class="bb fl f2" style="left:2%;top:420px;width:44px;height:44px"></div>
+                <div class="bb fl" style="left:17%;top:450px;width:18px;height:18px"></div>
+                <div class="bb fl f3" style="right:3%;top:520px;width:58px;height:58px"></div>
+                <div class="gl fl f2"
+                    style="left:3%;top:540px;border-radius:999px;padding:9px 20px;font-size:14px;font-weight:600;color:#BEF264">
+                    PET ۱</div>
+                <div class="gl fl f3"
+                    style="left:19%;top:300px;border-radius:999px;padding:9px 20px;font-size:14px;font-weight:600;color:#5EEAD4">
+                    قابل بازیافت</div>
+                <div class="ct">
+                    <div style="max-width:700px">
+                        <span class="gl"
+                            style="display:inline-block;border-radius:999px;padding:8px 20px;font-size:14px;font-weight:600;color:#BEF264">بازیافت
+                            بطری آب معدنی</span>
+                        <h1 class="h" style="font-size:clamp(48px,8vw,116px);margin:28px 0">آبش رو خوردی؟<br><span
+                                class="gt">بطریش رو ول نکن!</span></h1>
+                        <p
+                            style="margin:0 0 36px;max-width:560px;color:#9CC0B0;font-weight:300;font-size:clamp(17px,1.9vw,21px);line-height:2">
+                            هر بطری آب معدنی می‌تونه دوباره بطری بشه، یا الیاف یه لباس، یا یه چیز کاملاً جدید. فقط کافیه
+                            تو سطل درست بیفته.</p>
+                        <div style="display:flex;flex-wrap:wrap;gap:16px">
+                            <a class="bn" href="#steps">ببین چطوری</a>
+                            <a class="bn g" href="#outs">بعدش چی می‌شه؟</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div
+                style="overflow:hidden;padding:18px 0;direction:ltr;background:rgba(255,255,255,.03);border-block:1px solid rgba(255,255,255,.09)">
+                <div class="mq" style="font-size:30px;font-weight:800;color:#5EEAD4">
+                    <div class="mi">خالی کن ● له کن ● درپوشو ببند ● بنداز تو سطل بازیافت ● خالی کن ● له کن ● درپوشو ببند
+                        ● بنداز تو سطل بازیافت ● خالی کن ● له کن ● درپوشو ببند ● بنداز تو سطل بازیافت ●</div>
+                    <div class="mi">خالی کن ● له کن ● درپوشو ببند ● بنداز تو سطل بازیافت ● خالی کن ● له کن ● درپوشو ببند
+                        ● بنداز تو سطل بازیافت ● خالی کن ● له کن ● درپوشو ببند ● بنداز تو سطل بازیافت ●</div>
+                </div>
+            </div>
+
+            <section id="steps" class="sc" style="background:linear-gradient(#06130F,#0A2219)">
+                <div class="ob" style="width:300px;height:300px;background:#65A30D;top:10%;left:6%;opacity:.3"></div>
+                <svg class="fl f2" viewBox="0 0 100 260" style="left:6%;top:50px;width:100px;--r:12deg"
+                    aria-hidden="true">
+                    <use href="#k-b"></use>
+                </svg>
+                <svg class="fl f3" viewBox="0 0 40 52" style="left:22%;top:80px;width:42px;--r:-8deg"
+                    aria-hidden="true">
+                    <use href="#k-d"></use>
+                </svg>
+                <svg class="fl" viewBox="0 0 60 60" style="right:3%;bottom:36px;width:68px;--r:-20deg"
+                    aria-hidden="true">
+                    <use href="#k-l"></use>
+                </svg>
+                <svg class="fl f3" viewBox="0 0 20 20" style="left:34%;top:110px;width:16px" aria-hidden="true">
+                    <use href="#k-g"></use>
+                </svg>
+                <div class="ct">
+                    <h2 class="h h2" style="margin:0 0 56px">سفر یه بطری<br><span class="gt">تو ۴ قدم</span></h2>
+                    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:28px">
+                        <div class="gl cd">
+                            <div class="gm"><b>۱</b></div>
+                            <h3 class="h" style="font-size:28px">خالی کن</h3>
+                            <p>ته‌مونده‌ی آب یا نوشیدنی رو خالی کن تا بقیه‌ی بازیافتی‌ها خراب نشن.</p>
+                        </div>
+                        <div class="gl cd">
+                            <div class="gm"><b>۲</b></div>
+                            <h3 class="h" style="font-size:28px">له کن</h3>
+                            <p>بطری رو فشار بده تا جای کمتری بگیره و درپوشش رو ببند.</p>
+                        </div>
+                        <div class="gl cd">
+                            <div class="gm"><b>۳</b></div>
+                            <h3 class="h" style="font-size:28px">بنداز تو سطل</h3>
+                            <p>تو سطل بازیافت یا پسماند خشک، نه کنار زباله‌ی خیس و غذا.</p>
+                        </div>
+                        <div class="gl cd">
+                            <div class="gm"><b>۴</b></div>
+                            <h3 class="h" style="font-size:28px">دوباره زنده شو</h3>
+                            <p>بطری خرد و شسته می‌شه، ذوب می‌شه و می‌شه مواد اولیه‌ی چیز جدید.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="outs" class="sc" style="background:radial-gradient(1000px 600px at 15% 100%,#0F3A2C,#06130F)">
+                <div class="ob" style="width:320px;height:320px;background:#14B8A6;top:8%;right:6%;animation-delay:-5s">
+                </div>
+                <svg class="fl f2" viewBox="0 0 100 260" style="left:8%;top:90px;width:140px;--r:18deg"
+                    aria-hidden="true">
+                    <use href="#k-b"></use>
+                </svg>
+                <svg class="fl" viewBox="0 0 100 260" style="left:26%;bottom:60px;width:76px;--r:-24deg"
+                    aria-hidden="true">
+                    <use href="#k-b"></use>
+                </svg>
+                <svg class="fl f3" viewBox="0 0 40 40" style="left:30%;top:70px;width:52px;--r:10deg"
+                    aria-hidden="true">
+                    <use href="#k-c"></use>
+                </svg>
+                <svg class="fl f2" viewBox="0 0 20 20" style="left:4%;bottom:130px;width:20px" aria-hidden="true">
+                    <use href="#k-g"></use>
+                </svg>
+                <div class="bb fl f3" style="left:20%;top:380px;width:24px;height:24px"></div>
+                <div class="ct">
+                    <h2 class="h h2" style="margin:0 0 28px">بطری بعد از بازیافت<br><span class="gt">چی می‌شه؟</span>
+                    </h2>
+                    <p
+                        style="margin:0 0 40px;max-width:640px;color:#9CC0B0;font-weight:300;font-size:clamp(17px,1.8vw,20px);line-height:2">
+                        پلاستیک PET خرد و شسته می‌شه و دوباره مواد اولیه‌ی چیزهای جدیده. یعنی به‌جای ساختن پلاستیک تازه،
+                        از همون بطری‌هایی که داریم استفاده می‌شه.</p>
+                    <div style="display:flex;flex-wrap:wrap;gap:16px;max-width:760px">
+                        <span class="ch" style="background:rgba(190,242,100,.1);border-color:rgba(190,242,100,.5)">بطری
+                            جدید</span>
+                        <span class="ch" style="background:rgba(94,234,212,.1);border-color:rgba(94,234,212,.5)">الیاف
+                            لباس</span>
+                        <span class="ch" style="background:rgba(52,211,153,.1);border-color:rgba(52,211,153,.5)">کیف و
+                            کوله</span>
+                        <span class="ch" style="background:rgba(190,242,100,.1);border-color:rgba(190,242,100,.5)">فرش و
+                            موکت</span>
+                        <span class="ch" style="background:rgba(94,234,212,.1);border-color:rgba(94,234,212,.5)">پر
+                            کاپشن و بالش</span>
+                    </div>
+                    <div class="gl"
+                        style="display:flex;align-items:center;gap:20px;margin-top:48px;padding:22px 28px;max-width:640px">
+                        <svg viewBox="0 0 70 64" width="72" height="66" style="flex:none" aria-hidden="true">
+                            <use href="#k-p"></use>
+                        </svg>
+                        <p style="margin:0;font-weight:600;font-size:18px;line-height:1.8">ته بطری رو نگاه کن: علامت ۱ و
+                            نوشته‌ی PET یعنی بطری قابل بازیافته.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="sc" style="background:radial-gradient(1200px 700px at 20% -10%,#0F3A2C,#06130F)">
+                <div class="ob" style="width:300px;height:300px;background:#10B981;bottom:6%;right:8%"></div>
+                <svg class="fl f3" viewBox="0 0 100 260" style="left:6%;top:60px;width:116px;--r:-14deg"
+                    aria-hidden="true">
+                    <use href="#k-b"></use>
+                </svg>
+                <svg class="fl f2" viewBox="0 0 40 52" style="left:24%;bottom:70px;width:48px;--r:12deg"
+                    aria-hidden="true">
+                    <use href="#k-d"></use>
+                </svg>
+                <svg class="fl" viewBox="0 0 60 60" style="right:3%;top:40px;width:68px;--r:30deg" aria-hidden="true">
+                    <use href="#k-l"></use>
+                </svg>
+                <svg class="fl f3" viewBox="0 0 20 20" style="left:32%;top:90px;width:18px" aria-hidden="true">
+                    <use href="#k-g"></use>
+                </svg>
+                <div class="ct">
+                    <h2 class="h h2" style="margin:0 0 56px">این‌جوری،<br><span class="gt">نه اون‌جوری</span></h2>
+                    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:28px">
+                        <div class="gl cd" style="border-color:rgba(52,211,153,.35)">
+                            <h3 class="h" style="font-size:44px;margin-bottom:22px;color:#5EEAD4">بکن</h3>
+                            <ul style="list-style:none;margin:0;padding:0;display:grid;gap:18px">
+                                <li class="li"><b class="mk"
+                                        style="background:rgba(52,211,153,.18);color:#5EEAD4">+</b>خالی و له‌شده، با
+                                    درپوش بسته</li>
+                                <li class="li"><b class="mk"
+                                        style="background:rgba(52,211,153,.18);color:#5EEAD4">+</b>داخل سطل بازیافت یا
+                                    پسماند خشک</li>
+                                <li class="li"><b class="mk"
+                                        style="background:rgba(52,211,153,.18);color:#5EEAD4">+</b>جدا از زباله‌ی غذا و
+                                    خیس</li>
+                            </ul>
+                        </div>
+                        <div class="gl cd" style="border-color:rgba(255,154,138,.35)">
+                            <h3 class="h" style="font-size:44px;margin-bottom:22px;color:#FF9A8A">نکن</h3>
+                            <ul style="list-style:none;margin:0;padding:0;display:grid;gap:18px">
+                                <li class="li"><b class="mk"
+                                        style="background:rgba(255,154,138,.16);color:#FF9A8A">×</b>با ته‌مونده‌ی آب یا
+                                    نوشیدنی انداختنش</li>
+                                <li class="li"><b class="mk"
+                                        style="background:rgba(255,154,138,.16);color:#FF9A8A">×</b>رها کردنش کنار چشمه،
+                                    جاده یا طبیعت</li>
+                                <li class="li"><b class="mk"
+                                        style="background:rgba(255,154,138,.16);color:#FF9A8A">×</b>قاطی کردنش با
+                                    زباله‌ی خیس</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="sc"
+                style="padding-top:130px;padding-bottom:130px;background:radial-gradient(900px 600px at 50% 50%,#0F3A2C,#06130F)">
+                <div class="ob" style="width:340px;height:340px;background:#65A30D;top:10%;left:10%;opacity:.3"></div>
+                <div class="ob"
+                    style="width:300px;height:300px;background:#14B8A6;bottom:8%;right:10%;animation-delay:-7s"></div>
+                <svg class="fl f2" viewBox="0 0 100 260" style="left:7%;top:90px;width:124px;--r:-16deg"
+                    aria-hidden="true">
+                    <use href="#k-b"></use>
+                </svg>
+                <svg class="fl f3" viewBox="0 0 100 260" style="right:7%;top:130px;width:96px;--r:20deg"
+                    aria-hidden="true">
+                    <use href="#k-b"></use>
+                </svg>
+                <svg class="fl" viewBox="0 0 40 52" style="left:24%;bottom:60px;width:46px;--r:10deg"
+                    aria-hidden="true">
+                    <use href="#k-d"></use>
+                </svg>
+                <svg class="fl f2" viewBox="0 0 20 20" style="right:22%;top:90px;width:20px" aria-hidden="true">
+                    <use href="#k-g"></use>
+                </svg>
+                <div class="bb fl f3" style="right:24%;bottom:90px;width:42px;height:42px"></div>
+                <div class="ct gl cd" style="max-width:760px;padding:64px 32px;text-align:center">
+                    <h2 class="h" style="font-size:clamp(40px,6vw,84px);margin:0 0 20px">بطری بعدی‌ت رو<br><span
+                            class="gt">برگردون!</span></h2>
+                    <p
+                        style="margin:0 0 36px;color:#9CC0B0;font-weight:300;font-size:clamp(17px,1.9vw,21px);line-height:1.9">
+                        یه حرکت کوچیک، یه بطری کمتر تو طبیعت.</p>
+                    <a class="bn" href="#top">از اول شروع کن</a>
+                </div>
+            </section>
+
+            <footer
+                style="border-top:1px solid rgba(255,255,255,.09);color:#9CC0B0;text-align:center;padding:30px 28px;font-size:15px">
+                بازیافت بطری آب معدنی — برای زمین، برای خودت</footer>
+        </div>
+    </x-dc>
+    <script type="text/x-dc" data-dc-script
+        data-props='{"accent":{"editor":"color","default":"#34D399"},"$preview":{"width":1440,"height":3800}}'>
+class Component extends DCLogic {
+renderVals() {
+return { accent: this.props.accent ?? '#34D399' };
+}
+}
+</script>
+</body>
+
+</html>
